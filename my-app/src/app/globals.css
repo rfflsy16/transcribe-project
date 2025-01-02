@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #431717;
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,56 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@layer utilities {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(6px);
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+  }
+
+  .subtle-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
