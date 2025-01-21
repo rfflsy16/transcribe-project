@@ -11,12 +11,12 @@ export default function HeroSection() {
             <div className="relative">
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight">
                 Transform Your
-                <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500  bg-clip-text text-transparent">
                   Audio to Text
                 </span>
               </h1>
             </div>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-white max-w-2xl leading-relaxed">
               Experience lightning-fast, accurate audio transcription powered by
               cutting-edge AI technology.
             </p>

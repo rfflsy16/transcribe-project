@@ -5,8 +5,17 @@ import { Check } from "lucide-react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
+interface Plan {
+    name: string;
+    price: string;
+    features: string[];
+    popular: boolean;
+    buttonText: string;
+    gradient: string;
+}
+
 export default function PricingSection() {
-    const plans = [
+    const plans: Plan[] = [
         {
             name: "Free",
             price: "0",
@@ -147,7 +156,7 @@ export default function PricingSection() {
         }
     };
 
-    function Card({ plan }: { plan: any }) {
+    function Card({ plan }: { plan: Plan }) {
         const cardRef = useRef<HTMLDivElement>(null);
         const x = useMotionValue(0);
         const y = useMotionValue(0);
@@ -284,7 +293,7 @@ export default function PricingSection() {
                     viewport={{ once: false, margin: "-100px" }}
                 >
                     {plans.map((plan, index) => (
-                        <Card key={index} plan={plan} index={index} />
+                        <Card key={index} plan={plan} />
                     ))}
                 </motion.div>
             </div>
