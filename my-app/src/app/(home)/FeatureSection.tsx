@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedSection from "../UI/AnimatedSection";
+import AnimatedSection from "@/components/AnimatedSection"; 
 
 export default function FeatureSection() {
   const feature = [

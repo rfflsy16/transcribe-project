@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedSection from "../UI/AnimatedSection";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function HeroSection() {
   return (
@@ -9,7 +9,6 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="relative">
-              <div className="absolute inset-0 blur-md bg-gradient-to-r from-blue-500/10 to-purple-500/10 -z-10 animate-pulse"></div>
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight">
                 Transform Your
                 <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">

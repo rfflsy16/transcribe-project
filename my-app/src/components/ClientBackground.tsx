@@ -9,18 +9,22 @@ interface Shape {
   y: number;
   size: number;
   depth: number;
-  type: 'circle' | 'square' | 'triangle';
+  type: "circle" | "square" | "triangle";
   color: string;
 }
+
+const colors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#FFEEAD"];
 
 export default function ClientBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [shapes, setShapes] = useState<Shape[]>([]);
 
-  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEEAD'];
-
   useEffect(() => {
-    const shapeTypes: ('circle' | 'square' | 'triangle')[] = ['circle', 'square', 'triangle'];
+    const shapeTypes: ("circle" | "square" | "triangle")[] = [
+      "circle",
+      "square",
+      "triangle",
+    ];
     const newShapes = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -28,7 +32,7 @@ export default function ClientBackground() {
       size: Math.random() * 30 + 10,
       depth: Math.random() * 3 + 1,
       type: shapeTypes[Math.floor(Math.random() * shapeTypes.length)],
-      color: colors[Math.floor(Math.random() * colors.length)]
+      color: colors[Math.floor(Math.random() * colors.length)],
     }));
     setShapes(newShapes);
 
@@ -49,8 +53,11 @@ export default function ClientBackground() {
         <motion.div
           key={shape.id}
           className={`absolute ${
-            shape.type === 'triangle' ? 'triangle' : 
-            shape.type === 'square' ? 'rounded-sm' : 'rounded-full'
+            shape.type === "triangle"
+              ? "triangle"
+              : shape.type === "square"
+              ? "rounded-sm"
+              : "rounded-full"
           }`}
           style={{
             width: shape.size,
@@ -58,15 +65,25 @@ export default function ClientBackground() {
             left: `${shape.x}%`,
             top: `${shape.y}%`,
             opacity: 0.6,
-            backgroundColor: shape.type === 'triangle' ? 'transparent' : shape.color,
-            borderBottom: shape.type === 'triangle' ? `${shape.size}px solid ${shape.color}` : 'none',
-            borderLeft: shape.type === 'triangle' ? `${shape.size/2}px solid transparent` : 'none',
-            borderRight: shape.type === 'triangle' ? `${shape.size/2}px solid transparent` : 'none',
+            backgroundColor:
+              shape.type === "triangle" ? "transparent" : shape.color,
+            borderBottom:
+              shape.type === "triangle"
+                ? `${shape.size}px solid ${shape.color}`
+                : "none",
+            borderLeft:
+              shape.type === "triangle"
+                ? `${shape.size / 2}px solid transparent`
+                : "none",
+            borderRight:
+              shape.type === "triangle"
+                ? `${shape.size / 2}px solid transparent`
+                : "none",
           }}
           animate={{
             x: (mousePosition.x - 0.5) * 50 * shape.depth,
             y: (mousePosition.y - 0.5) * 50 * shape.depth,
-            rotate: shape.type === 'triangle' ? [0, 360] : 0
+            rotate: shape.type === "triangle" ? [0, 360] : 0,
           }}
           transition={{
             type: "tween",
@@ -75,8 +92,8 @@ export default function ClientBackground() {
             rotate: {
               duration: 20,
               repeat: Infinity,
-              ease: "linear"
-            }
+              ease: "linear",
+            },
           }}
         />
       ))}

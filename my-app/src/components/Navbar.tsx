@@ -4,11 +4,16 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="relative z-50 backdrop-blur-sm border-b border-white/10">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
-            <Link href={"/"}>Transcribe</Link>
+            <Link
+              href={"/"}
+              className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+            >
+              Transcribe
+            </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <Link

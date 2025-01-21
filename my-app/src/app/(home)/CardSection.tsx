@@ -1,12 +1,13 @@
 "use client";
-import AnimatedSection from "../UI/AnimatedSection";
+import AnimatedSection from "@/components/AnimatedSection";
+import CountUp from "react-countup";
 
 export default function CardSection() {
   const stats = [
-    { number: "99%", label: "Accuracy" },
-    { number: "30+", label: "Languages" },
-    { number: "1M+", label: "Users" },
-    { number: "24/7", label: "Support" },
+    { number: 99, suffix: "%", label: "Accuracy" },
+    { number: 99, suffix: "+", label: "Languages" },
+    { number: 1000000, suffix: "+", label: "Users" },
+    { number: 24, suffix: "/7", label: "Support" },
   ];
 
   return (
@@ -21,7 +22,12 @@ export default function CardSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
               <div className="relative">
                 <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                  {stat.number}
+                  <CountUp 
+                    end={stat.number} 
+                    suffix={stat.suffix}
+                    duration={4}
+                    separator=","
+                  />
                 </div>
                 <div className="text-gray-400 mt-2 font-medium">
                   {stat.label}
